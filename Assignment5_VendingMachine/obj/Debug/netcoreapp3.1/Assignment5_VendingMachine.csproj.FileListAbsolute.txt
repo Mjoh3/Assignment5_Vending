@@ -1,0 +1,14 @@
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\bin\Debug\netcoreapp3.1\Assignment5_VendingMachine.exe
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\bin\Debug\netcoreapp3.1\Assignment5_VendingMachine.deps.json
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\bin\Debug\netcoreapp3.1\Assignment5_VendingMachine.runtimeconfig.json
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\bin\Debug\netcoreapp3.1\Assignment5_VendingMachine.runtimeconfig.dev.json
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\bin\Debug\netcoreapp3.1\Assignment5_VendingMachine.dll
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\bin\Debug\netcoreapp3.1\Assignment5_VendingMachine.pdb
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.csproj.AssemblyReference.cache
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.AssemblyInfoInputs.cache
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.AssemblyInfo.cs
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.csproj.CoreCompileInputs.cache
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.dll
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.pdb
+C:\Users\Martin Johansson\source\repos\Assignment5_VendingMachine\Assignment5_VendingMachine\obj\Debug\netcoreapp3.1\Assignment5_VendingMachine.genruntimeconfig.cache
