@@ -6,7 +6,7 @@ namespace Assignment5_VendingMachine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine((new WorkplaceVendingMachine()).ShowAll());
+            Console.WriteLine("Feel free to play around :)");
 
         }
     }

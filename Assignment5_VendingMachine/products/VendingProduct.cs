@@ -6,8 +6,10 @@ namespace Assignment5_VendingMachine
 {
     public abstract class VendingProduct
     {
+        
+        public abstract string GetName();
         protected int price;
-        protected string description;
+        public string description;
         public string Examine() //should describe the product
         {
             return "Description:\n" + description + "\nPrice:\n" + price.ToString();
@@ -22,5 +24,6 @@ namespace Assignment5_VendingMachine
         {
             return description;
         }
+        public abstract bool Matches(VendingProduct compared);
     }
 }

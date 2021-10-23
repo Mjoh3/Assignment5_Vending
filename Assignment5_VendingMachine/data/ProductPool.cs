@@ -43,7 +43,7 @@ namespace Assignment5_VendingMachine
                 {
                     for (int i = 0; i < products.Count; i++)
                     {
-                        if (products[i].GetType() == product1.GetType())
+                        if (products[i].Matches(product1))
                         {
                             products.RemoveAt(i);
                             count++;
@@ -60,7 +60,7 @@ namespace Assignment5_VendingMachine
             int count = 0;
             foreach (VendingProduct p in products)
             {
-                if (product1.GetType() == p.GetType())
+                if (product1.Matches(p))
                     count++;
             }
             return count;
@@ -75,6 +75,68 @@ namespace Assignment5_VendingMachine
             return pricesum;
 
         }
+        public List<VendingProduct> Unique()
+        { //check for unique products always add the first product, then only add the other product once if they do not already exist in the array
+            var uniquelist= new List<VendingProduct>();
+            bool match=false;
+            foreach(VendingProduct product in products)
+            {
+                if (uniquelist.Count == 0)
+                {
+                    uniquelist.Add(product);
+                }
+                else
+                {
+                    foreach (VendingProduct uniqueproduct in uniquelist)
+                    {
+                        if (!(product.Matches(uniqueproduct))){ match = false;}
+                        else { match = true; }
+                    }
+                    if (match == false) { uniquelist.Add(product); }
+                }                
+            }
+            return uniquelist;
+        }
         public int ProductCountTotal() { return products.Count; }
+        public bool ProductExist(VendingProduct expectedproduct)
+        {//check for the product in the list and return true if it exists
+            foreach(VendingProduct p in products)
+            {
+                if (p.Matches(expectedproduct))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static ProductPool operator +(ProductPool a, ProductPool b)
+        { //operator adds products from both pool to the summed pool
+            ProductPool c = new ProductPool();
+            foreach (var product in a.GetProductList())
+                c.AddProduct(product);
+            foreach (var product in b.GetProductList())
+                c.AddProduct(product);
+            return c;
+        }
+
+        public static ProductPool operator -(ProductPool a, ProductPool b)
+        {//check every product in order to subtract(only works bool a has more than, or at least as many items as b)
+            ProductPool c = new ProductPool(); 
+            foreach (var uniqueproduct in a.Unique()) {
+                if (a.ProductExist(uniqueproduct) && b.ProductExist(uniqueproduct))
+                {
+                    if((a.ProductCountFor(uniqueproduct) - b.ProductCountFor(uniqueproduct))>=0) 
+                    {
+                        c.AddProduct(uniqueproduct, (a.ProductCountFor(uniqueproduct) - b.ProductCountFor(uniqueproduct)));
+                    }
+                    else
+                    {
+                        throw new Exception("Not enough stock");
+                    }
+                }
+            }
+            return c;
+        }
+
     }
 }

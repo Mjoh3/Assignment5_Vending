@@ -6,17 +6,43 @@ namespace Assignment5_VendingMachine
 {
     public class WorkplaceVendingMachine : IVending
     {
+        private ProductPool inventory=new ProductPool();
+        public ProductPool GetInventory() { return inventory; }
+        public void ReStockAll(int amount)
+        {//just restocks everything we have right now in the store
+            inventory.ClearProducts();
+            inventory.AddProduct(new Pen(Pen.Material.WOOD),amount);
+            inventory.AddProduct(new Pen(Pen.Material.METAL),amount);
+            inventory.AddProduct(new Pen(Pen.Material.PLASTIC),amount);
+            inventory.AddProduct(new NotebookXL(NotebookXL.PageDesigns.BLANK),amount);
+            inventory.AddProduct(new NotebookXL(NotebookXL.PageDesigns.LINES),amount);
+            inventory.AddProduct(new NotebookXL(NotebookXL.PageDesigns.SQUARES), amount);
+            inventory.AddProduct(new Eraser(true),amount);
+            inventory.AddProduct(new Eraser(false),amount);
+        }
+        public void AddSomeProduct(VendingProduct product,int amount=1)
+        {
+           
+            inventory.AddProduct(product, amount);
+        }
         private MoneyPool inserted=new MoneyPool();
         private int leftovers=0;
         public MoneyPool GetInserted() { return inserted; }
         public int GetLeftovers() { return leftovers; }
         
         public string ShowAll() { //just shows the available products
-            return "Pen: \t\t"+ (new Pen()).GetPrice()+":-\t"+ (new Pen()).GetDescription() +
-                "\nEraser: \t" + (new Eraser()).GetPrice() + ":-\t" + (new Eraser()).GetDescription() +
-                "\nNotebookXL: \t" + (new NotebookXL()).GetPrice() + ":-\t" + (new NotebookXL()).GetDescription();
+            List<String> fullItemDescriptions= new List<string>();
+            foreach (VendingProduct uniqueproduct in inventory.Unique())
+                fullItemDescriptions.Add(uniqueproduct.GetName()+ " " + uniqueproduct.GetPrice()+":- "+uniqueproduct.GetDescription());
+            fullItemDescriptions.Sort();
 
+            string showall = "";
+            foreach (string itemDescription in fullItemDescriptions)
+            {
+                showall += itemDescription + "\n";
+            }
 
+            return showall;
         }
         public ProductPool Purchase(ProductPool wantedProducts) 
         {
@@ -28,7 +54,9 @@ namespace Assignment5_VendingMachine
             {
                 leftovers = inserted.SumOfAllCash() - wantedProducts.PriceSum();
             }
-            inserted = new MoneyPool();
+            
+            inserted = new MoneyPool();//clean inserted money and give user the product
+            inventory -= wantedProducts;
             return wantedProducts; 
         }
         public MoneyPool EndTransaction() { //get the leftovers int and converts it to moneypool

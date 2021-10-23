@@ -10,10 +10,31 @@ namespace Assignment5_VendingMachine
         {
             return "Erasing the things you wrote";
         }
-        public Eraser()
+        public override string GetName()
         {
+            string name = "Eraser ";
+            name += isLarge ? "(Large)" : "(Small)";
+            return name;
+        }
+        private bool isLarge;
+        public bool IsLarge() { return isLarge; }
+
+        public override bool Matches(VendingProduct compared)
+        {
+            if (this.GetType() != compared.GetType())
+                return false;
+            else
+            {
+                Eraser pencompared = (Eraser)compared;
+                return this.IsLarge() == pencompared.IsLarge();
+            }
+        }
+        public Eraser(bool large=false)
+        {
+            isLarge = large;
             description = "Prompts the customer to erase mistake";
-            price = 4;
+            
+            price =  large ? 5:4;
         }
     }
 }

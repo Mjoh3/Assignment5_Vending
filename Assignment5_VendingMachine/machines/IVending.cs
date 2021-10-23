@@ -6,6 +6,7 @@ namespace Assignment5_VendingMachine
 {
     public interface IVending
     {
+        public ProductPool GetInventory();
         public MoneyPool EndTransaction(); //end transaction should return some money for the user
         public string ShowAll(); // just show all available items
         public ProductPool Purchase(ProductPool wantedProducts); //purchase method should just return to the user products

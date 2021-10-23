@@ -93,6 +93,15 @@ namespace VendingTests
             bool allPriceInExamine = penPriceInExamine && eraserPriceInExamine && notebookxlPriceInExamine;
             Assert.True(allDescriptionsInExamine && allPriceInExamine);
         }
+        [Fact]
+        public void NameTest()
+        {
+            NotebookXL linednotebook = new NotebookXL(NotebookXL.PageDesigns.LINES);
+            Pen metalpen = new Pen(Pen.Material.METAL);
+            bool containsexpected = metalpen.GetName().Contains("Pen") && metalpen.GetName().Contains("Metal")
+                && linednotebook.GetName().Contains("NotebookXL") && linednotebook.GetName().Contains("Lines");
+            Assert.True(containsexpected);
+        }
     }
 
 }
